@@ -1,3 +1,8 @@
+extern crate env_logger;
+#[macro_use] extern crate lazy_static;
+#[macro_use] extern crate log;
+extern crate regex;
+
 use std::fs::File;
 use std::io::Read;
 use std::io::Write;
@@ -5,15 +10,6 @@ use std::thread::sleep;
 use std::time::Duration;
 
 use regex::Regex;
-
-#[macro_use]
-extern crate lazy_static;
-
-extern crate env_logger;
-#[macro_use]
-extern crate log;
-
-extern crate regex;
 
 fn read_ambient_light() -> u8 {
     let path = "/sys/devices/platform/applesmc.768/light";
