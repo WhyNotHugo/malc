@@ -24,8 +24,11 @@ Caveats
 
  * Manually altering the keyboard backlight isn't really possible, since the
    value is quickly reset according to ambient light.
- * Ambient light -> keyboard brightness mapping still needs some work. The
-   backlight is triggered too soon, and is usually brighter than desired.
+ * There is very little granularity for the keyboard backlight, because there
+   is very little granularity in the MBA's light sensor. See the upstream
+   applesmc issue[1] for details.
+
+[1]: https://bugzilla.kernel.org/show_bug.cgi?id=114931
 
 Licence
 -------

@@ -66,10 +66,11 @@ pub fn main() {
         let ambient = read_ambient_light();
         info!("Light sensor reports a light value of {}", ambient);
 
-        // XXX: Use a smarter algorithm here:
-        // * Usual ambient values linger between 0..3.
-        // * Backlight of 80 is the strongest ever needed.
-        let backlight = 255 - ambient;
+        let backlight = match ambient {
+            0 => 80,
+            1 => 20,
+            _ => 0,
+        };
 
         set_backlight(backlight);
 
