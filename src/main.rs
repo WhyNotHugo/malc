@@ -8,6 +8,11 @@ use regex::Regex;
 
 #[macro_use]
 extern crate lazy_static;
+
+extern crate env_logger;
+#[macro_use]
+extern crate log;
+
 extern crate regex;
 
 fn read_ambient_light() -> u8 {
@@ -47,7 +52,7 @@ fn set_backlight(value: u8) {
         Err(e) => panic!("Failed to open backlight file: {}", e),
     };
 
-    println!("Setting keyboard backlight to {}", value);
+    info!("Setting keyboard backlight to {}", value);
     match write!(f, "{}", value) {
         Ok(r) => r,
         Err(e) => panic!("Failed to write backlight value into file: {}", e),
@@ -55,9 +60,11 @@ fn set_backlight(value: u8) {
 }
 
 pub fn main() {
+    env_logger::init().unwrap();
+
     loop {
         let ambient = read_ambient_light();
-        println!("Light sensor reports a light value of {}", ambient);
+        info!("Light sensor reports a light value of {}", ambient);
 
         // XXX: Use a smarter algorithm here:
         // * Usual ambient values linger between 0..3.
