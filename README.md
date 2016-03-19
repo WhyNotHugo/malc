@@ -1,9 +1,9 @@
 MALC
 ====
 
-MacBook Automatic Light Calibrator (*MALC*) is a small app that set a MacBook's
-keyboard backlight brightness according to ambient brightness (using the
-MacBook's light sensor).
+MacBook Automatic Light Calibrator (**MALC**) is a small app that set a
+MacBook's keyboard backlight brightness according to ambient brightness (using
+the MacBook's light sensor).
 
 It has been tested on a 2013 MBA, but should work on any other MacBook that
 uses the applesmc kernel module.
